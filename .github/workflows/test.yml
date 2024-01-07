@@ -16,8 +16,8 @@ jobs:
 
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
-        working-directory: api
         with:
+          working-directory: api
           bundler-cache: true
 
       - name: Lint
