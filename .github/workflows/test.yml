@@ -16,12 +16,14 @@ jobs:
 
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
+        working-directory: api
         with:
           bundler-cache: true
 
       - name: Lint
         run: |
           bin/standardrb --format progress
+          bundle exec standardrb --format progress
 
       - name: Run tests
         env:
