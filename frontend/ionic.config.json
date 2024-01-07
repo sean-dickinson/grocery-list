@@ -1,0 +1,7 @@
+{
+  "name": "Grocery List",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
