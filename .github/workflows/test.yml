@@ -22,7 +22,6 @@ jobs:
 
       - name: Lint
         run: |
-          bin/standardrb --format progress
           bundle exec standardrb --format progress
 
       - name: Run tests
