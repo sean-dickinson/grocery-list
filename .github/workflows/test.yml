@@ -1,0 +1,31 @@
+name: CI
+on:
+  push:
+    branches:
+      - "*"
+
+jobs:
+  test-api:
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: api
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Lint
+        run: |
+          bin/standardrb --format progress
+
+      - name: Run tests
+        env:
+          RAILS_ENV: test
+        run: |
+          bin/rails db:test:prepare
+          bin/rails spec
